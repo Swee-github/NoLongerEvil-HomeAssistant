@@ -1,8 +1,8 @@
 ---
 name: "NoLongerEvil HomeAssistant"
 description: "NoLongerEvil Nest API - Self-hosted Nest thermostat control"
-url: "https://github.com/codykociemba/NoLongerEvil-HomeAssistant"
-version: "0.0.7"
+url: "https://github.com/Swee-github/NoLongerEvil-HomeAssistant"
+version: "0.0.8"
 slug: "nolongerevil"
 init: false
 hassio_api: true
