@@ -4,12 +4,14 @@ FROM $BUILD_FROM
 # Install Node.js and npm
 RUN apk add --no-cache nodejs npm
 
+# Cache bust - change this value to force full rebuild
+ARG CACHE_BUST=2
+
 # Build vendor server
 WORKDIR /server
 COPY vendor/nolongerevil/server/package*.json ./
 COPY vendor/nolongerevil/server/tsconfig.json ./
 COPY vendor/nolongerevil/server/src ./src
-ARG CACHE_BUST=1
 RUN npm install && npm run build
 
 # Build frontend
