@@ -4,9 +4,6 @@ FROM $BUILD_FROM
 # Install Node.js and npm
 RUN apk add --no-cache nodejs npm
 
-# Cache bust - change this value to force full rebuild
-ARG CACHE_BUST=2
-
 # Build vendor server
 WORKDIR /server
 COPY vendor/nolongerevil/server/package*.json ./
@@ -25,7 +22,5 @@ RUN npm install && npm run build
 COPY run.sh /
 RUN chmod a+x /run.sh && mkdir -p /data
 
-# Expose ports
 EXPOSE 8000 8081 8082
-
 CMD [ "/run.sh" ]
